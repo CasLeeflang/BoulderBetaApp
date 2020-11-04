@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Boulder page";
+}
+
+@using static BoulderBeta.Logic.BoulderProcessor;
+
+@{List<Boulder> BoulderStorage = BoulderBeta.Logic.BoulderProcessor.BoulderStorage;}
+
+<link rel="stylesheet" href="~/css/Style.css" />
+
+<body>
+
+    <div class="container-fluid">
+        <div class="text-light">
+            <div class="text-sm-center">
+                <h1>Boulders</h1>
+                <br />
+                <p style="font-size:30px;">
+                    Below is a list of boulders we have a beta for!
+                </p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap">
+        @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.BoulderStorage)
+        {
+            <div class="card p-1 m-2" style="width:200px;">
+                <div class="card-body">
+                    <h3 class="card-tag text-light p-1">@boulder.Tag</h3>
+                    <h5 class="card-title">@boulder.BoulderName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@boulder.Location</h6>
+                    <p class="card-text">Grade: @boulder.Grade</p>
+                    <a href="#" class="card-link">View</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h3 class="text-light">Dynamic Boulders</h3>
+
+    @{BoulderBeta.Logic.BoulderProcessor.CreateTagList("Dynamic");}
+
+    <div class="d-flex flex-wrap">
+        @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.sortedList)
+        {
+            <div class="card p-1 m-2" style="width:200px;">
+                <div class="card-body">
+                    <h3 class="card-tag text-light p-1">@boulder.Tag</h3>
+                    <h5 class="card-title">@boulder.BoulderName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@boulder.Location</h6>
+                    <p class="card-text">Grade: @boulder.Grade</p>
+                    <a href="#" class="card-link">View</a>
+                </div>
+            </div>
+        }
+    </div>
+</body>

@@ -1,0 +1,101 @@
+﻿@model BoulderBeta.Models.Boulder
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/Style.css" />
+<body>
+
+    <div class="container-fluid">
+        <div class="text-light">
+            <div class="text-sm-center">
+                <h1>Welcome!</h1>
+                <br />
+                <p style="font-size:30px;">
+                    Welcome to the Boulder Beta App! Boulder Beta helps you find the best beta for you. Check out the list of boulders users have uploaded a beta for.
+                </p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-light border-top pt-3">
+        <div class="row">
+
+            <div class="column align-items-center" style="background-color:grey; border-radius: 20px;">
+                <p class="" style="font-size:30px;">
+                    here is a list of newly added boulders
+                </p>
+
+                <div>
+                    <table class="table text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Boulder Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.BoulderStorage)
+                            {
+                                <tr>
+                                    <th scope="row">@boulder.BoulderID</th>
+                                    <td>@boulder.BoulderName</td>
+                                    <td>@boulder.Location</td>
+                                    <td>@boulder.Grade</td>
+                                    <td><button class="btn bg-light">View</button></td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="column align-items-center">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th colspan="2" align="center">Boulder Details</th>
+                        </tr>
+                        <tr>
+                            <td>BoulderName:</td>
+                            <td>@Html.TextBoxFor(m => m.BoulderName)</td>
+                        </tr>
+                        <tr>
+                            <td>Location: </td>
+                            <td>@Html.TextBoxFor(m => m.Location)</td>
+                        </tr>
+                        <tr>
+                            <td>Grade: </td>
+                            <td>@Html.TextBoxFor(m => m.Grade)</td>
+                        </tr>
+                        <tr>
+                            <td>Tag: </td>
+                            <td>
+                                @Html.DropDownListFor(m => m.Tag, new List<SelectListItem>
+                        { new SelectListItem{Text="Dynamic", Value="Dynamic"},
+                         new SelectListItem{Text="Static", Value="Static"},
+                          new SelectListItem{Text="Crimp", Value="Crimp"} }, "Select Tag")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Submit" /></td>
+                        </tr>
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>

@@ -1,0 +1,57 @@
+﻿.bg-brand {
+    background-color: #F3F3F3 !important;
+}
+
+.brand-font {
+    font-family: 'Turret Road', cursive;
+}
+.bottom{
+    bottom:0;
+}
+
+.bg-green {
+    background-color: #39B54A;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.no-style-list {
+    list-style-type: none;
+}
+
+
+ .welcome{
+     align-content: center;
+ }
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.expand-hover {
+    transition: transform 0.3s;
+}
+
+.expand-hover:hover, expand-hover:focus{
+    transform:scale(1.4);
+}
+.card-tag{
+    background-color:grey;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 70px;
+    text-align:center;
+}
