@@ -1,6 +1,7 @@
 ﻿using BoulderBeta.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoulderBeta.Logic
 {
@@ -37,37 +38,41 @@ namespace BoulderBeta.Logic
                 BoulderName = "Gaffer",
                 Location = "Fontaine Bleu",
                 Grade = "7B",
-                BoulderID = 3
+                BoulderID = 55
             }
         };
 
+        //Create list sortedList
         public static List<Boulder> sortedList = new List<Boulder>();
 
-        public static void CreateTagList(string tag)
+        //Return a list of boulders with the specified tag
+        public static List<Boulder> GetTagList(string tag)
         {
             foreach (var boulder in BoulderStorage)
             {
-                if (boulder.Tag == tag)
+                if (boulder.Tag == tag && !sortedList.Contains(boulder))
                 {
                     sortedList.Add(boulder);
-                }               
+                }
             }
+
+            return sortedList;
         }
 
-        //Constructs boulder based on form input
-        public static void addBoulder(string boulderName, string location, string grade, string tag)
+        //Return a list of all boulders
+        public static List<Boulder> GetAll()
         {
-            Boulder tempBoulder = new Boulder
-            {
-                BoulderName = boulderName,
-                Location = location,
-                Grade = grade,
-                BoulderID = BoulderStorage.Count,
-                Tag = tag
-            };
-            //Add boulder to storage
-            BoulderStorage.Add(tempBoulder);
+            return BoulderStorage;
         }
 
+        //Save a boulder. Change to save to DB instead of BoulderStorage
+        public static void Save(Boulder boulder)
+        {
+            //BoulderID Increases with every boulder added by 1
+            var maxID = BoulderStorage.Max(x => x.BoulderID);
+            boulder.BoulderID = maxID + 1;
+            BoulderStorage.Add(boulder);
+
+        }
     }
 }

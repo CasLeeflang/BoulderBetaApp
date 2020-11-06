@@ -10,6 +10,8 @@
 
 <body>
 
+   
+
     <div class="container-fluid">
         <div class="text-light">
             <div class="text-sm-center">
@@ -20,10 +22,19 @@
                 </p>
                 <br />
             </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Categories</button>
+                <div class="dropdown-content">
+                    
+                </div>
+            </div>
+
         </div>
     </div>
 
     <div class="d-flex flex-wrap">
+        <!--iterate over all boulders and create card to display-->
         @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.BoulderStorage)
         {
             <div class="card p-1 m-2" style="width:200px;">
@@ -40,9 +51,11 @@
 
     <h3 class="text-light">Dynamic Boulders</h3>
 
-    @{BoulderBeta.Logic.BoulderProcessor.CreateTagList("Dynamic");}
+    <!--Load List of boulders with specified tag-->
+    @{BoulderBeta.Logic.BoulderProcessor.GetTagList("Dynamic");}
 
     <div class="d-flex flex-wrap">
+        <!--Iterate over all boulders in sorted list-->
         @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.sortedList)
         {
             <div class="card p-1 m-2" style="width:200px;">
