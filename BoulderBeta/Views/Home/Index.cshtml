@@ -4,13 +4,15 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using static BoulderBeta.Logic.BoulderProcessor;
+
 <link rel="stylesheet" href="~/css/Style.css" />
 <body>
 
     <div class="container-fluid">
         <div class="text-light">
             <div class="text-sm-center">
-                <h1>Welcome!</h1>
+                <h1 class="brand-font-40">Welcome!</h1>
                 <br />
                 <p style="font-size:30px;">
                     Welcome to the Boulder Beta App! Boulder Beta helps you find the best beta for you. Check out the list of boulders users have uploaded a beta for.
@@ -24,8 +26,8 @@
         <div class="row">
 
             <div class="column align-items-center" style="background-color:grey; border-radius: 20px;">
-                <p class="" style="font-size:30px;">
-                    here is a list of newly added boulders
+                <p class="brand-font-30">
+                    Newly added boulders
                 </p>
 
                 <div>
@@ -40,7 +42,7 @@
                         </thead>
                         <tbody>
 
-                            @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.BoulderStorage)
+                            @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.GetAll().Skip(Math.Max(0, BoulderStorage.Count()-5)))
                             {
                                 <tr>
                                     <th scope="row">@boulder.BoulderID</th>
@@ -61,10 +63,10 @@
                 {
                     <table cellpadding="0" cellspacing="0">
                         <tr>
-                            <th colspan="2" align="center">Boulder Details</th>
+                            <th colspan="2" align="center" class="brand-font-30">Boulder Details</th>
                         </tr>
                         <tr>
-                            <td>BoulderName:</td>
+                            <td class="pr-5">Name: </td>
                             <td>@Html.TextBoxFor(m => m.BoulderName)</td>
                         </tr>
                         <tr>
