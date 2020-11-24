@@ -9,10 +9,9 @@ namespace BoulderBeta.Logic
     public class TagProcessor
     {
         public static List<Tag> TagStorage = new List<Tag>();
-        public static void SaveTag(Boulder boulder)
+        public static void SaveTag(string tag)
         {
-            
-            
+            TagStorage.Add(new Tag(tag, 0));            
         }
     }
 }

@@ -46,7 +46,7 @@
                             {
                                 <tr>
                                     <th scope="row">@boulder.BoulderID</th>
-                                    <td>@boulder.BoulderName</td>
+                                    <td>@boulder.Name</td>
                                     <td>@boulder.Location</td>
                                     <td>@boulder.Grade</td>
                                     <td><button class="btn bg-light">View</button></td>
@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <td class="pr-5">Name: </td>
-                            <td>@Html.TextBoxFor(m => m.BoulderName)</td>
+                            <td>@Html.TextBoxFor(m => m.Name)</td>
                         </tr>
                         <tr>
                             <td>Location: </td>
@@ -79,12 +79,12 @@
                         </tr>
                         <tr>
                             <td>Tag: </td>
-                            <td>
+                            @*<td>
                                 @Html.DropDownListFor(m => m.Tag, new List<SelectListItem>
                         { new SelectListItem{Text="Dynamic", Value="Dynamic"},
                          new SelectListItem{Text="Static", Value="Static"},
                           new SelectListItem{Text="Crimp", Value="Crimp"} }, "Select Tag")
-                            </td>
+                            </td>*@
                         </tr>
                         <tr>
                             <td></td>

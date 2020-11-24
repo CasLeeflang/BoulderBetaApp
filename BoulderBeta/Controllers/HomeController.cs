@@ -46,7 +46,7 @@ namespace BoulderBeta.Controllers
         {
             //Add boulder to Storage location lis BoulderStorage
             BoulderBeta.Logic.BoulderProcessor.Save(boulder);
-            BoulderBeta.Logic.TagProcessor.SaveTag(boulder);
+            //BoulderBeta.Logic.TagProcessor.SaveTag(boulder.Tag);
             //BoulderBeta.Logic.BoulderProcessor.addBoulder(boulder.BoulderName, boulder.Location, boulder.Grade, boulder.Tag);
             ModelState.Clear();
             return View();
