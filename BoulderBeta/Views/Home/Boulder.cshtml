@@ -10,7 +10,7 @@
 
 <body>
 
-   
+
 
     <div class="container-fluid">
         <div class="text-light">
@@ -22,11 +22,11 @@
                 </p>
                 <br />
             </div>
-            
+
             <div class="dropdown">
                 <button class="dropbtn">Categories</button>
                 <div class="dropdown-content">
-                    
+
                 </div>
             </div>
 
@@ -39,8 +39,7 @@
         {
             <div class="card p-1 m-2" style="width:200px;">
                 <div class="card-body">
-                    <h3 class="card-tag text-light p-1">@boulder.Tag</h3>
-                    <h5 class="card-title">@boulder.BoulderName</h5>
+                    <h5 class="card-title">@boulder.Name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@boulder.Location</h6>
                     <p class="card-text">Grade: @boulder.Grade</p>
                     <a href="#" class="card-link">View</a>
@@ -51,22 +50,7 @@
 
     <h3 class="text-light">Dynamic Boulders</h3>
 
-    <!--Load List of boulders with specified tag-->
-    @{BoulderBeta.Logic.BoulderProcessor.GetTagList("Dynamic");}
+    
 
-    <div class="d-flex flex-wrap">
-        <!--Iterate over all boulders in sorted list-->
-        @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.sortedList)
-        {
-            <div class="card p-1 m-2" style="width:200px;">
-                <div class="card-body">
-                    <h3 class="card-tag text-light p-1">@boulder.Tag</h3>
-                    <h5 class="card-title">@boulder.BoulderName</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@boulder.Location</h6>
-                    <p class="card-text">Grade: @boulder.Grade</p>
-                    <a href="#" class="card-link">View</a>
-                </div>
-            </div>
-        }
-    </div>
+
 </body>
