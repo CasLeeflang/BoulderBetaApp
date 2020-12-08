@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BoulderBeta.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace BoulderBeta
 {
@@ -24,6 +26,9 @@ namespace BoulderBeta
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<BoulderContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("BoudlerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
