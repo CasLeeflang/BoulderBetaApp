@@ -4,7 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@using static BoulderBeta.Logic.BoulderProcessor;
 
 <link rel="stylesheet" href="~/css/Style.css" />
 <body>
@@ -28,72 +27,8 @@
             <div class="column align-items-center" style="background-color:grey; border-radius: 20px;">
                 <p class="brand-font-30">
                     Newly added boulders
-                </p>
-
-                <div>
-                    <table class="table text-light">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Boulder Name</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Grade</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.GetAll().Skip(Math.Max(0, BoulderStorage.Count()-5)))
-                            {
-                                <tr>
-                                    <th scope="row">@boulder.BoulderID</th>
-                                    <td>@boulder.Name</td>
-                                    <td>@boulder.Location</td>
-                                    <td>@boulder.Grade</td>
-                                    <td><button class="btn bg-light">View</button></td>
-
-                                </tr>
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="column align-items-center">
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-                {
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <th colspan="2" align="center" class="brand-font-30">Boulder Details</th>
-                        </tr>
-                        <tr>
-                            <td class="pr-5">Name: </td>
-                            <td>@Html.TextBoxFor(m => m.Name)</td>
-                        </tr>
-                        <tr>
-                            <td>Location: </td>
-                            <td>@Html.TextBoxFor(m => m.Location)</td>
-                        </tr>
-                        <tr>
-                            <td>Grade: </td>
-                            <td>@Html.TextBoxFor(m => m.Grade)</td>
-                        </tr>
-                        <tr>
-                            <td>Tag: </td>
-                            @*<td>
-                                @Html.DropDownListFor(m => m.Tag, new List<SelectListItem>
-                        { new SelectListItem{Text="Dynamic", Value="Dynamic"},
-                         new SelectListItem{Text="Static", Value="Static"},
-                          new SelectListItem{Text="Crimp", Value="Crimp"} }, "Select Tag")
-                            </td>*@
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" value="Submit" /></td>
-                        </tr>
-                    </table>
-                }
-
-            </div>
+                </p>         
+            </div>           
         </div>
     </div>
 

@@ -2,9 +2,7 @@
     ViewData["Title"] = "Boulder page";
 }
 
-@using static BoulderBeta.Logic.BoulderProcessor;
 
-@{List<Boulder> BoulderStorage = BoulderBeta.Logic.BoulderProcessor.BoulderStorage;}
 
 <link rel="stylesheet" href="~/css/Style.css" />
 
@@ -33,24 +31,9 @@
         </div>
     </div>
 
-    <div class="d-flex flex-wrap">
-        <!--iterate over all boulders and create card to display-->
-        @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.BoulderStorage)
-        {
-            <div class="card p-1 m-2" style="width:200px;">
-                <div class="card-body">
-                    <h5 class="card-title">@boulder.Name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@boulder.Location</h6>
-                    <p class="card-text">Grade: @boulder.Grade</p>
-                    <a href="#" class="card-link">View</a>
-                </div>
-            </div>
-        }
-    </div>
-
     <h3 class="text-light">Dynamic Boulders</h3>
 
-    
+
 
 
 </body>

@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.MVC", "BoulderB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.Models", "BoulderBeta.Models\BoulderBeta.Models.csproj", "{9D34A2FB-B7AE-4249-A867-A804BC175638}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.Logic", "BoulderBeta.Logic\BoulderBeta.Logic.csproj", "{748EF71C-C03F-44FB-A92A-A4F90FC90955}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BoulderBeta_db", "BoulderBeta_db\BoulderBeta_db.sqlproj", "{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.DataAccess", "BoulderBeta.DataAccess\BoulderBeta.DataAccess.csproj", "{1378224D-A5CE-44CF-8E5A-20A8BE117ED0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.Context", "BoulderBeta.Context\BoulderBeta.Context.csproj", "{5E25FFED-F439-480C-A308-D6EAC1A4E40B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{721BFE58-14BF-46C3-881F-CDE660B65770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,18 +25,16 @@ Global
 		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Release|Any CPU.Build.0 = Release|Any CPU
-		{748EF71C-C03F-44FB-A92A-A4F90FC90955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{748EF71C-C03F-44FB-A92A-A4F90FC90955}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{748EF71C-C03F-44FB-A92A-A4F90FC90955}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{748EF71C-C03F-44FB-A92A-A4F90FC90955}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1378224D-A5CE-44CF-8E5A-20A8BE117ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1378224D-A5CE-44CF-8E5A-20A8BE117ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1378224D-A5CE-44CF-8E5A-20A8BE117ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1378224D-A5CE-44CF-8E5A-20A8BE117ED0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E25FFED-F439-480C-A308-D6EAC1A4E40B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E25FFED-F439-480C-A308-D6EAC1A4E40B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E25FFED-F439-480C-A308-D6EAC1A4E40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E25FFED-F439-480C-A308-D6EAC1A4E40B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{721BFE58-14BF-46C3-881F-CDE660B65770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721BFE58-14BF-46C3-881F-CDE660B65770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721BFE58-14BF-46C3-881F-CDE660B65770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721BFE58-14BF-46C3-881F-CDE660B65770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
