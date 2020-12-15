@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BoulderBeta.Models;
 using Microsoft.Extensions.Configuration;
+using DataLibrary.BusinessLogic;
+using DataLibrary.Models;
 
 namespace BoulderBeta.Controllers
 {
@@ -15,7 +17,8 @@ namespace BoulderBeta.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<BoulderModel> BoulderList = BoulderProcessor.LoadBoulders();
+            return View(BoulderList);
         }
 
         private readonly ILogger<HomeController> _logger;
@@ -32,8 +35,22 @@ namespace BoulderBeta.Controllers
 
         public IActionResult Boulder()
         {
+            List<BoulderModel> BoulderList = BoulderProcessor.LoadBoulders();
+            return View(BoulderList);
+        }
+
+        public IActionResult BoulderView(int id)
+        {
+            List<BoulderModel> boulder = BoulderProcessor.LoadBoulderById(id);
+            return View(boulder);
+        }
+
+        public IActionResult Post(int boulderId, int userId)
+        {
+            
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

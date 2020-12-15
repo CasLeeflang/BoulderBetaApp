@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BoulderBeta.MVC.Models
 {
     //View model
-    public class BoulderModel
+    public class BoulderViewModel
     {
         [Display(Name= "Boulder Name")]
         [DataType(DataType.Text)]

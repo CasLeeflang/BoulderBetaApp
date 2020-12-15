@@ -6,6 +6,11 @@
     font-family: 'Turret Road', cursive;
     color:white;
 }
+
+.brand-font-dark {
+    font-family: 'Turret Road', cursive;
+    color: black;
+}
 .bottom{
     bottom:0;
 }
@@ -46,9 +51,16 @@
     transition: transform 0.3s;
 }
 
+.expand-hover-sm {
+    transition: transform 0.3s;
+}
 .expand-hover:hover, expand-hover:focus{
     transform:scale(1.4);
 }
+
+    .expand-hover-sm:hover, expand-hover:focus {
+        transform: scale(1.1);
+    }
 .card-tag{
     background-color:grey;
     border-radius: 10px;
@@ -56,10 +68,25 @@
     width: 70px;
     text-align:center;
 }
+.brand-font-20 {
+    font-family: 'Turret Road', cursive;
+    font-size: 20px;
+}
+.brand-font-20-dark {
+    font-family: 'Turret Road', cursive;
+    font-size: 20px;
+    color: black;
+}
 
 .brand-font-30 {
     font-family: 'Turret Road', cursive;
     font-size:30px;
+}
+
+.brand-font-30-dark {
+    font-family: 'Turret Road', cursive;
+    font-size: 30px;
+    color: black;
 }
 
 .brand-font-40 {
@@ -114,3 +141,44 @@
 .dropdown:hover .dropbtn {
     background-color: #6d6d6d;
 }
+.card-blue {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: dodgerblue;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-red {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: orangered;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+.card-green {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: green;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+

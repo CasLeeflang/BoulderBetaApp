@@ -3,6 +3,7 @@ using DataLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessLogic
 {
@@ -25,11 +26,18 @@ namespace DataLibrary.BusinessLogic
             return SQLDataAccess.SaveData(sql, data);
         }
 
-        //Why not allowed to be public?!
-        static List<BoulderModel> LoadBoulders()
+        public static List<BoulderModel> LoadBoulders()
         {
-            string sql = @"select Id, BoulderId, Name, Location, Grade
+            string sql = @"select Id, Name, Location, Grade
                             from dbo.Boulder;";
+
+            return SQLDataAccess.LoadData<BoulderModel>(sql);
+        }
+
+        public static List<BoulderModel> LoadBoulderById(int id)
+        {
+            string sql = @"select Id, Name, Location, Grade
+                            from dbo.Boulder where Id = " + id; ;
 
             return SQLDataAccess.LoadData<BoulderModel>(sql);
         }

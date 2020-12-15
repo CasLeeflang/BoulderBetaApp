@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataLibrary.Models
 {
-    class BoulderModel
+    public class BoulderModel
     {
         //Logic model        
         public int Id { get; set; }

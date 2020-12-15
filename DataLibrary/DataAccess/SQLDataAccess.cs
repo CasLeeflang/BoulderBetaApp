@@ -16,7 +16,7 @@ namespace DataLibrary.DataAccess
         public static string GetConnectionString()
         {
             //Does not return connectionstring
-            return AppSettingsModel.ConnectionString;
+            return "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = BoulderBeta_db; Integrated Security = True; Connect Timeout = 60; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
         }
 
         public static List<T> LoadData<T>(string sql)
@@ -29,6 +29,15 @@ namespace DataLibrary.DataAccess
             
         }
 
+        public static T LoadDataNotList<T>(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                
+                return (T)cnn.Query<T>(sql);
+            }
+
+        }
         //Save one model using sql statement
         public static int SaveData<T>(string sql, T data)
         {
