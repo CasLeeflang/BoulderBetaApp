@@ -27,7 +27,15 @@ namespace DataLibrary.BusinessLogic
 
             return SQLDataAccess.SaveData(sql, data);
         }
+        public static List<PostModel> LoadPostsByBoulder(int id)
+        {
+            string sql = @"select *
+                            from dbo.Post where BoulderId =" + id;
 
-       
+            return SQLDataAccess.LoadData<PostModel>(sql);
+        }
+
+
+
     }
 }

@@ -1,16 +1,32 @@
 ﻿@model List<BoulderModel>
 
 @using DataLibrary.Models;
+@using DataLibrary.BusinessLogic
 
 
 @foreach (var boulder in Model)
 {
-    <div class="text-light">
-        <h1 class="brand-font-30">@boulder.Name</h1>
-        <h2 class="brand-font-30">@boulder.Location</h2>
-        <h2 class="brand-font-30">@boulder.Grade</h2>
+    <div class="container-fluid">
+        <div class="text-light text-sm-center">
+            <h1 class="brand-font-30">Name: @boulder.Name</h1>
+            <h2 class="brand-font-30">Location: @boulder.Location</h2>
+            <h2 class="brand-font-30">Grade: @boulder.Grade</h2>
+
+            @*Send temp userId with the action*@
+            <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">Upload Post</a>
+        </div>
     </div>
 
-    //Send temp userId with the action
-    <a class="" asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">Upload Post</a>
-        }
+
+    @foreach (var post in PostProcessor.LoadPostsByBoulder(boulder.Id))
+    {
+        <div class="text-dark card mt-3">
+            <iframe src="@post.VideoUrl"></iframe>
+            <h2 class="brand-font-30">Created by User with userId: @post.UserId</h2>
+            <h2 class="brand-font-30">Number of ratings: @post.NofRatings</h2>
+            <h2 class="brand-font-30">Total rating: @post.TotRating</h2>
+        </div>
+    }
+
+
+}
