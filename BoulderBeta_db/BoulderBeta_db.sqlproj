@@ -63,9 +63,11 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Boulder.sql" />
     <Build Include="dbo\Tables\Post.sql" />
+    <Build Include="dbo\Tables\TempUsers.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishProfiles\BoulderBeta_db.publish.xml" />
+    <None Include="PublishProfiles\BoulderBeta_db_TempUsers.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BoulderBeta_db.refactorlog" />

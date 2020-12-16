@@ -18,6 +18,7 @@
     </div>
 
     List<PostModel> Posts = PostProcessor.LoadPostsByBoulder(boulder.Id);
+
     int numberOfPosts = Posts.Count();
 
     @*check if there are posts*@
@@ -25,22 +26,36 @@
     {
         @*Send temp userId with the action*@
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">
-                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> | 
-                <input type="submit" value="Upload Your Own Beta" class="btn bg-green brand-font-dark" />
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
+                <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
             </form>
         </div>
-
+        int nOfPosts = 0;
         @foreach (var post in Posts)
         {
+            string[] cardcolor = { "card-darkgrey", "card-lightgrey" };
 
-
-            <div class="text-dark card mt-3">
-                <iframe src="@post.VideoUrl"></iframe>
-                <h2 class="brand-font-30-dark">Created by User with userId: @post.UserId</h2>
-                <h2 class="brand-font-30-dark">Number of ratings: @post.NofRatings</h2>
-                <h2 class="brand-font-30-dark">Total rating: @post.TotRating</h2>
+            
+            <div class="text-dark @cardcolor[nOfPosts] mt-3">
+                <div class="row">
+                    
+                    <div class="column ml-5 mt-2">
+                        @foreach (var user in UserProcessor.LoadUserById(post.UserId))
+                        {
+                            <h2 class="brand-font-30-dark">Beta by @user.UserName</h2>
+                        }
+                        <h2 class="brand-font-30-dark">Number of ratings: @post.NofRatings</h2>
+                        <h2 class="brand-font-30-dark">Total rating: @post.TotRating</h2>
+                    </div>
+                    <iframe src="@post.VideoUrl"></iframe>
+                </div>
             </div>
+            nOfPosts++;
+            if (nOfPosts > 1)
+            {
+                nOfPosts = 0;
+            }
         }
     }
     else
@@ -48,9 +63,9 @@
         <h2 class="brand-font-30">There are no Betas available for this Boulder yet.</h2>
         @*Send temp userId with the action*@
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">
-                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> | 
-                <input type="submit" value="Upload Your Own Beta" class="btn bg-green brand-font-dark" />
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
+                <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
             </form>
         </div>
     }

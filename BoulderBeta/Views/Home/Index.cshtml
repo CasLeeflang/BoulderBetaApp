@@ -34,16 +34,15 @@
                 <p class="brand-font-30">
                     3 Newest Boulders
                 </p>
-            </div>  
+            </div>
             <div class="ml-auto">
                 <a class="btn bg-green expand-hover-sm brand-font-dark" asp-area="" asp-controller="Home" asp-action="Boulder">See All</a>
             </div>
         </div>
-
         @{int nOfBoulders = 0; }
-        @foreach (var boulder in Model.Skip(Math.Max(0, Model.Count - 3)))
+        @foreach (var boulder in Model.Skip(Math.Max(0, Model.Count - 3)).Reverse())
         {
-            string[] cardcolor = { "card-blue", "card-red", "card-green" };
+            string[] cardcolor = { "card-darkgrey", "card-lightgrey" };
 
 
             <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="BoulderView" asp-route-id="@boulder.Id">
@@ -56,12 +55,13 @@
                                 <div class="row">
                                     <p class="card-title col-2 brand-font-20-dark">Name</p>
                                     <p class="card-text col-2 brand-font-20-dark">Location</p>
-                                    <p class="card-author col-2 brand-font-20-dark">Grade</p>
                                 </div>
                                 <div class="row">
                                     <p class="card-title col-2">@boulder.Name</p>
                                     <p class="card-text col-2">@boulder.Location</p>
-                                    <p class="card-author col-2">@boulder.Grade</p>
+                                    <div class="circle ml-auto">
+                                        <div class="tag-text brand-font-dark ml-3">@boulder.Grade</div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -76,11 +76,13 @@
                 </div>
             </a>
             nOfBoulders++;
-            if (nOfBoulders > 2)
+            if (nOfBoulders > 1)
             {
                 nOfBoulders = 0;
             }
         }
+
+       
     </div>
 
 

@@ -13,14 +13,12 @@ namespace BoulderBeta.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UploadPost(PostModel model, int boulderId, int userId)
-        {         
-
-
+        {
+            Console.WriteLine(userId);
             if (ModelState.IsValid)
             {
-
                 int recordsCreate = CreatePost(userId,
-                    boulderId,                    
+                    boulderId,
                     model.VideoUrl);
                 return RedirectToAction("BoulderView", "Home", new { id = boulderId });
             }
