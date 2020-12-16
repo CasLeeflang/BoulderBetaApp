@@ -43,7 +43,12 @@ namespace BoulderBeta.MVC.Controllers
             return View();
         }
 
-       
+        public ActionResult DeleteBoulder(int boulderId)
+        {
+            BoulderProcessor.DeleteBoulder(boulderId);
+            return RedirectToAction("Boulder", "Home");
+        }       
+
     }
 }
 

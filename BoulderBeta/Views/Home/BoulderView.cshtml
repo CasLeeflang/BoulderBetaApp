@@ -4,29 +4,61 @@
 @using DataLibrary.BusinessLogic
 
 
+
 @foreach (var boulder in Model)
 {
     <div class="container-fluid">
         <div class="text-light text-sm-center">
-            <h1 class="brand-font-30">Name: @boulder.Name</h1>
-            <h2 class="brand-font-30">Location: @boulder.Location</h2>
-            <h2 class="brand-font-30">Grade: @boulder.Grade</h2>
+            <h1 class="brand-font-30">Below are all the available Betas for @boulder.Name</h1>
+            <h2 class="brand-font-20">Location: @boulder.Location</h2>
+            <h2 class="brand-font-20">Grade: @boulder.Grade</h2>
 
-            @*Send temp userId with the action*@
-            <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">Upload Post</a>
+
         </div>
     </div>
 
+    List<PostModel> Posts = PostProcessor.LoadPostsByBoulder(boulder.Id);
+    int numberOfPosts = Posts.Count();
 
-    @foreach (var post in PostProcessor.LoadPostsByBoulder(boulder.Id))
+    @*check if there are posts*@
+    if (numberOfPosts != 0)
     {
-        <div class="text-dark card mt-3">
-            <iframe src="@post.VideoUrl"></iframe>
-            <h2 class="brand-font-30">Created by User with userId: @post.UserId</h2>
-            <h2 class="brand-font-30">Number of ratings: @post.NofRatings</h2>
-            <h2 class="brand-font-30">Total rating: @post.TotRating</h2>
+        @*Send temp userId with the action*@
+        <div class="row">
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">
+                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> | 
+                <input type="submit" value="Upload Your Own Beta" class="btn bg-green brand-font-dark" />
+            </form>
+        </div>
+
+        @foreach (var post in Posts)
+        {
+
+
+            <div class="text-dark card mt-3">
+                <iframe src="@post.VideoUrl"></iframe>
+                <h2 class="brand-font-30-dark">Created by User with userId: @post.UserId</h2>
+                <h2 class="brand-font-30-dark">Number of ratings: @post.NofRatings</h2>
+                <h2 class="brand-font-30-dark">Total rating: @post.TotRating</h2>
+            </div>
+        }
+    }
+    else
+    {
+        <h2 class="brand-font-30">There are no Betas available for this Boulder yet.</h2>
+        @*Send temp userId with the action*@
+        <div class="row">
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="0">
+                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> | 
+                <input type="submit" value="Upload Your Own Beta" class="btn bg-green brand-font-dark" />
+            </form>
         </div>
     }
+
+    <div class="mt-5">
+        <h2 class="brand-font-30">Admin Controll</h2>
+        <a class="btn bg-green expand-hover-sm brand-font-dark" asp-area="" asp-controller="Home" asp-action="DeleteBoulderView" asp-route-boulderId="@boulder.Id" asp-route-numberOfPosts="@numberOfPosts">Delete Boulder</a>
+    </div>
 
 
 }

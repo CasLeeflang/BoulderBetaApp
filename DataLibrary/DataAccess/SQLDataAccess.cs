@@ -47,5 +47,22 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public static int DeleteData<T>(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Execute(sql);
+            }
+        }
+
+        public static List<T> LoadSearchData<T>(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Query<T>(sql).ToList();
+            }
+
+        }
+
     }
 }

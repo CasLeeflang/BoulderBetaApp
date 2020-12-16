@@ -18,8 +18,8 @@
             <div class="text-sm-center">
                 <h1 class="brand-font-40">Welcome!</h1>
                 <br />
-                <p style="font-size:30px;">
-                    Welcome to the Boulder Beta App! Boulder Beta helps you find the best beta for you. Check out the list of boulders users have uploaded a beta for.
+                <p class="brand-font-30">
+                    Welcome to the Boulder Beta, find your Boulder and see it's Beta!
                 </p>
                 <br />
 
@@ -30,10 +30,13 @@
 
     <div class="container text-light border-top pt-3">
         <div class="row">
-            <div class="column align-items-center" style="background-color: #59626c; border-radius: 10px;">
+            <div class="col-4 column align-items-center">
                 <p class="brand-font-30">
                     3 Newest Boulders
                 </p>
+            </div>  
+            <div class="ml-auto">
+                <a class="btn bg-green expand-hover-sm brand-font-dark" asp-area="" asp-controller="Home" asp-action="Boulder">See All</a>
             </div>
         </div>
 

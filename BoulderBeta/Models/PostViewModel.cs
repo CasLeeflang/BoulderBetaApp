@@ -9,19 +9,22 @@ namespace BoulderBeta.MVC.Models
     public class PostViewModel
     {
         [Required]
-        public int UserId { get; set; }
+        public int UserId { get; private set; }
 
         [Required]
-        public int BoulderId { get; set; }
+        public int BoulderId { get; private set; }
 
         [Required(ErrorMessage = "Please fill in a URL for the video.")]
         [DataType(DataType.Url)]
-        public string VideoUrl { get; set; }
+        public string VideoUrl { get; private set; }
+
+        public PostViewModel(int userId, int boulderId)
+        {
+            this.UserId = userId;
+            this.BoulderId = boulderId;
+        }
 
 
-        //Not neccessary in viewModel (yet)
-        //public int  NofRatings { get; set; }
-        //public int TotRating { get; set; }
 
     }
 }

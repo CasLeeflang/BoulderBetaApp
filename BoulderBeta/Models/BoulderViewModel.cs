@@ -12,14 +12,14 @@ namespace BoulderBeta.MVC.Models
         [Display(Name= "Boulder Name")]
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Please Fill in a Name.")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
         
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Please Fill in a Location.")]
-        public string Location { get; set; }
+        public string Location { get; private set; }
 
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Please Fill in a Grade.")]
-        public string Grade { get; set; }
+        public string Grade { get; private set; }
     }
 }

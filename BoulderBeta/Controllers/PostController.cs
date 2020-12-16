@@ -12,15 +12,15 @@ namespace BoulderBeta.MVC.Controllers
     {
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UploadPost(PostModel model)
+        public ActionResult UploadPost(PostModel model, int boulderId, int userId)
         {         
 
 
             if (ModelState.IsValid)
             {
 
-                int recordsCreate = CreatePost(model.UserId,
-                    model.BoulderId,                    
+                int recordsCreate = CreatePost(userId,
+                    boulderId,                    
                     model.VideoUrl);
                 return RedirectToAction("Boulder", "Home");
             }
