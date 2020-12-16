@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/Style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap" rel="stylesheet">
+
 </head>
 <body class="bg-dark">
-    <header>
+    <header class="sticky-top">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-brand border-bottom box-shadow mb-3">
             <div class="container-fluid">
 
@@ -28,7 +29,13 @@
                             <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item expand-hover pr-3">
+                            <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Boulder" asp-action="UploadBoulder">Upload</a>
+                        </li>
+                        <li class="nav-item expand-hover pr-3">
                             <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="Boulder">Boulders</a>
+                        </li>
+                        <li class="nav-item expand-hover pr-3">
+                            <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="CreatePost">Post</a>
                         </li>
                         <li class="nav-item expand-hover pr-3">
                             <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="Index">Help</a>
@@ -39,6 +46,7 @@
                         <li class="nav-item expand-hover pr-3">
                             <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="Index">Settings</a>
                         </li>
+
                         <li class="nav-item expand-hover pr-3">
                             <a class="nav-link text-dark brand-font" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -62,7 +70,7 @@
                                 <li class="pb-0">
                                     <div style="border: 1px solid #DDD;">
                                         <img src="~/Assets/loep.png" width="20" />
-                                        <input class="" type="text" placeholder="Search..."/>
+                                        <input class="" type="text" placeholder="Search..." />
                                     </div>
                                 </li>
                             </ul>

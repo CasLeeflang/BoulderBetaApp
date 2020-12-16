@@ -1,10 +1,14 @@
-﻿@model BoulderBeta.Models.Boulder
+﻿@using DataLibrary.Models;
+@using DataLibrary.BusinessLogic;
 
+
+
+@model List<BoulderModel>
 @{
     ViewData["Title"] = "Home Page";
+
 }
 
-@using static BoulderBeta.Logic.BoulderProcessor;
 
 <link rel="stylesheet" href="~/css/Style.css" />
 <body>
@@ -18,83 +22,62 @@
                     Welcome to the Boulder Beta App! Boulder Beta helps you find the best beta for you. Check out the list of boulders users have uploaded a beta for.
                 </p>
                 <br />
+
+
             </div>
         </div>
     </div>
 
     <div class="container text-light border-top pt-3">
         <div class="row">
-
-            <div class="column align-items-center" style="background-color:grey; border-radius: 20px;">
+            <div class="column align-items-center" style="background-color: #59626c; border-radius: 10px;">
                 <p class="brand-font-30">
-                    Newly added boulders
+                    3 Newest Boulders
                 </p>
-
-                <div>
-                    <table class="table text-light">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Boulder Name</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Grade</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var boulder in BoulderBeta.Logic.BoulderProcessor.GetAll().Skip(Math.Max(0, BoulderStorage.Count()-5)))
-                            {
-                                <tr>
-                                    <th scope="row">@boulder.BoulderID</th>
-                                    <td>@boulder.BoulderName</td>
-                                    <td>@boulder.Location</td>
-                                    <td>@boulder.Grade</td>
-                                    <td><button class="btn bg-light">View</button></td>
-
-                                </tr>
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="column align-items-center">
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-                {
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <th colspan="2" align="center" class="brand-font-30">Boulder Details</th>
-                        </tr>
-                        <tr>
-                            <td class="pr-5">Name: </td>
-                            <td>@Html.TextBoxFor(m => m.BoulderName)</td>
-                        </tr>
-                        <tr>
-                            <td>Location: </td>
-                            <td>@Html.TextBoxFor(m => m.Location)</td>
-                        </tr>
-                        <tr>
-                            <td>Grade: </td>
-                            <td>@Html.TextBoxFor(m => m.Grade)</td>
-                        </tr>
-                        <tr>
-                            <td>Tag: </td>
-                            <td>
-                                @Html.DropDownListFor(m => m.Tag, new List<SelectListItem>
-                        { new SelectListItem{Text="Dynamic", Value="Dynamic"},
-                         new SelectListItem{Text="Static", Value="Static"},
-                          new SelectListItem{Text="Crimp", Value="Crimp"} }, "Select Tag")
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" value="Submit" /></td>
-                        </tr>
-                    </table>
-                }
-
             </div>
         </div>
+
+        @{int nOfBoulders = 0; }
+        @foreach (var boulder in Model.Skip(Math.Max(0, Model.Count - 3)))
+        {
+            string[] cardcolor = { "card-blue", "card-red", "card-green" };
+
+
+            <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="BoulderView" asp-route-id="@boulder.Id">
+
+                <div class="@cardcolor[nOfBoulders]">
+                    <div class="d-inline-flex flex-column text-dark col-auto">
+                        <div class="row">
+
+                            <div class="card-body d-inline-flex flex-column text-dark col-auto">
+                                <div class="row">
+                                    <p class="card-title col-2 brand-font-20-dark">Name</p>
+                                    <p class="card-text col-2 brand-font-20-dark">Location</p>
+                                    <p class="card-author col-2 brand-font-20-dark">Grade</p>
+                                </div>
+                                <div class="row">
+                                    <p class="card-title col-2">@boulder.Name</p>
+                                    <p class="card-text col-2">@boulder.Location</p>
+                                    <p class="card-author col-2">@boulder.Grade</p>
+                                </div>
+                            </div>
+
+
+
+                            <div>
+                                <p class="brand-font-30-dark">Placeholder</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+            nOfBoulders++;
+            if (nOfBoulders > 2)
+            {
+                nOfBoulders = 0;
+            }
+        }
     </div>
 
 

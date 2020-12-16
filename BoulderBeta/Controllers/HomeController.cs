@@ -6,23 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BoulderBeta.Models;
-using BoulderBeta.Logic;
+using Microsoft.Extensions.Configuration;
+using DataLibrary.BusinessLogic;
+using DataLibrary.Models;
 
 namespace BoulderBeta.Controllers
 {
     public class HomeController : Controller
-    {
+    {      
+
+        public IActionResult Index()
+        {
+            List<BoulderModel> BoulderList = BoulderProcessor.LoadBoulders();
+            return View(BoulderList);
+        }
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        }       
 
         public IActionResult Privacy()
         {
@@ -31,8 +35,22 @@ namespace BoulderBeta.Controllers
 
         public IActionResult Boulder()
         {
+            List<BoulderModel> BoulderList = BoulderProcessor.LoadBoulders();
+            return View(BoulderList);
+        }
+
+        public IActionResult BoulderView(int id)
+        {
+            List<BoulderModel> boulder = BoulderProcessor.LoadBoulderById(id);
+            return View(boulder);
+        }
+
+        public IActionResult Post(int boulderId, int userId)
+        {
+            
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -40,16 +58,6 @@ namespace BoulderBeta.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        //Listen for Http Post and send data to the server
-        [HttpPost]
-        public ActionResult Index(Boulder boulder)
-        {
-            //Add boulder to Storage location lis BoulderStorage
-            BoulderBeta.Logic.BoulderProcessor.Save(boulder);
-            BoulderBeta.Logic.TagProcessor.SaveTag(boulder);
-            //BoulderBeta.Logic.BoulderProcessor.addBoulder(boulder.BoulderName, boulder.Location, boulder.Grade, boulder.Tag);
-            ModelState.Clear();
-            return View();
-        }
+        
     }
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="615cbd2b-4008-433f-a5a4-6a7c49269869" ChangeDateTime="12/11/2020 10:33:13">
+    <Property Name="ElementName" Value="[dbo].[Boulder].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Boulder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BoulderId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="af20eb14-03c5-432d-a115-a9252ffabc4f" ChangeDateTime="12/11/2020 10:33:20">
+    <Property Name="ElementName" Value="[dbo].[Boulder].[Location]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Boulder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="64a43ac0-2e2f-493e-a89e-d39e4d14915f" ChangeDateTime="12/11/2020 10:33:29">
+    <Property Name="ElementName" Value="[dbo].[Boulder].[Grade]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Boulder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Location" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3e15f446-6167-4f27-89be-161efe8f47db" ChangeDateTime="12/15/2020 17:01:44">
+    <Property Name="ElementName" Value="[dbo].[Post].[BoulderId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Post]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+</Operations>
