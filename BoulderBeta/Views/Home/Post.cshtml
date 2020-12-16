@@ -4,38 +4,28 @@
     ViewData["Title"] = "Post";
 }
 
-<h1>Post</h1>
+<div class="brand-font">
+    <h1>Upload your own Beta</h1>
 
-<h4>PostViewModel</h4>
-<hr />
-<div class="row">
+    <h4>Put the Url to your video below!</h4>
+    <hr />
+</div>
+<div class="row text-light">
     <div class="col-md-4">
-        <form asp-controller="Post" asp-action="UploadPost">
+        <form asp-controller="Post" asp-action="UploadPost" asp-route-boulderId="@Model.BoulderId" asp-route-userId="@Model.UserId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BoulderId" class="control-label"></label>
-                <input asp-for="BoulderId" class="form-control" />
-                <span asp-validation-for="BoulderId" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="VideoUrl" class="control-label"></label>
                 <input asp-for="VideoUrl" class="form-control" />
                 <span asp-validation-for="VideoUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" /> |
+                <a class="btn bg-green" asp-action="BoulderView" asp-route-id="@Model.BoulderId">Back to Boulder</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Boulder">Back to List</a>
 </div>
 
 @section Scripts {

@@ -71,6 +71,7 @@
 .brand-font-20 {
     font-family: 'Turret Road', cursive;
     font-size: 20px;
+    color: white;
 }
 .brand-font-20-dark {
     font-family: 'Turret Road', cursive;
@@ -80,7 +81,8 @@
 
 .brand-font-30 {
     font-family: 'Turret Road', cursive;
-    font-size:30px;
+    font-size: 30px;
+    color: white;
 }
 
 .brand-font-30-dark {
@@ -92,6 +94,7 @@
 .brand-font-40 {
     font-family: 'Turret Road', cursive;
     font-size: 40px;
+    color: white;
 }
 
 /* Dropdown Button */
@@ -163,7 +166,7 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: orangered;
+    background-color: #df3f03;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;

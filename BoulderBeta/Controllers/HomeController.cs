@@ -9,6 +9,7 @@ using BoulderBeta.Models;
 using Microsoft.Extensions.Configuration;
 using DataLibrary.BusinessLogic;
 using DataLibrary.Models;
+using BoulderBeta.MVC.Models;
 
 namespace BoulderBeta.Controllers
 {
@@ -45,12 +46,26 @@ namespace BoulderBeta.Controllers
             return View(boulder);
         }
 
-        public IActionResult Post(int boulderId, int userId)
+        public IActionResult DeleteBoulderView(int boulderId, int numberOfPosts)
         {
+            List<BoulderModel> deleteBoulder = BoulderProcessor.LoadBoulderById(boulderId);
+            ViewData["numberOfPosts"] = numberOfPosts;
             
-            return View();
+            return View(deleteBoulder);
         }
 
+        public IActionResult Post(int boulderId, int userId)
+        {
+            PostViewModel newPost = new PostViewModel(userId, boulderId);
+            return View(newPost);
+        }
+
+        public IActionResult SearchPage(string searchTerm)
+        {
+            Console.WriteLine(searchTerm);
+            List<BoulderModel> searchList = BoulderProcessor.SearchBoulders(searchTerm);
+            return View(searchList);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

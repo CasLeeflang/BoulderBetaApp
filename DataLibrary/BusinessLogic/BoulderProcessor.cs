@@ -37,9 +37,35 @@ namespace DataLibrary.BusinessLogic
         public static List<BoulderModel> LoadBoulderById(int id)
         {
             string sql = @"select Id, Name, Location, Grade
-                            from dbo.Boulder where Id = " + id; ;
+                            from dbo.Boulder where Id = " + id;
 
             return SQLDataAccess.LoadData<BoulderModel>(sql);
+        }
+
+        public static bool DeleteBoulder(int id)
+        {
+            try
+            {
+                string sql = @"delete from dbo.Boulder where Id = " + id;
+                SQLDataAccess.DeleteData<BoulderModel>(sql);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static List<BoulderModel> SearchBoulders(string searchTerm)
+        {
+            string searchCondition = "'%" + searchTerm + "%'";
+            string sql = @"select *
+                            from dbo.Boulder 
+                            where Name like " + searchCondition +
+                            "or Location like" + searchCondition +
+                            "or Grade like" + searchCondition;
+
+            return SQLDataAccess.LoadSearchData<BoulderModel>(sql);
         }
     }
 }

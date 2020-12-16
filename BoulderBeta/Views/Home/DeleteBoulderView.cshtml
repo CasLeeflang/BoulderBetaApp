@@ -1,0 +1,41 @@
+﻿@model List<BoulderModel>
+@using DataLibrary.Models;
+@{
+    ViewData["Title"] = "DeleteBoulderView";
+}
+
+<h1 class="brand-font">Delete this Boulder?</h1>
+
+
+<div class="brand-font">
+    @foreach (var boulder in Model)
+    {
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => boulder.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => boulder.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => boulder.Location)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => boulder.Location)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => boulder.Grade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => boulder.Grade)
+            </dd>
+        </dl>
+
+        <h5>Are you sure you want to delete this Boulder with @ViewData["numberOfPosts"] post(s)?</h5>
+        <form asp-controller="Boulder" asp-action="DeleteBoulder" asp-route-boulderId="@boulder.Id">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a class="btn bg-green" asp-action="Index">Back to List</a>
+        </form>
+    }
+</div>
