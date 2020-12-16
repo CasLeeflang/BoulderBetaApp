@@ -12,10 +12,10 @@ namespace DataLibrary.DataAccess
 {
     public static class SQLDataAccess
     {
-        //Loading in Connection String
+        //Fetch Connection String
         public static string GetConnectionString()
         {
-            //Does not return connectionstring
+            //Temporary, need to read connection string from appsettings.json and call in this function
             return "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = BoulderBeta_db; Integrated Security = True; Connect Timeout = 60; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
         }
 
