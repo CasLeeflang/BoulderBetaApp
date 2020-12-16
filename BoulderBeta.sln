@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.MVC", "BoulderBeta\BoulderBeta.MVC.csproj", "{F71C0445-5CC0-44F9-A8BA-8289F32CA618}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoulderBeta.Models", "BoulderBeta.Models\BoulderBeta.Models.csproj", "{9D34A2FB-B7AE-4249-A867-A804BC175638}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BoulderBeta_db", "BoulderBeta_db\BoulderBeta_db.sqlproj", "{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{721BFE58-14BF-46C3-881F-CDE660B65770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{721BFE58-14BF-46C3-881F-CDE660B65770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{F71C0445-5CC0-44F9-A8BA-8289F32CA618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F71C0445-5CC0-44F9-A8BA-8289F32CA618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F71C0445-5CC0-44F9-A8BA-8289F32CA618}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D34A2FB-B7AE-4249-A867-A804BC175638}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0B0A3E-881D-4710-A053-0EF5A6E09AE5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU

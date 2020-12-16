@@ -22,7 +22,7 @@ namespace BoulderBeta.MVC.Controllers
                 int recordsCreate = CreatePost(userId,
                     boulderId,                    
                     model.VideoUrl);
-                return RedirectToAction("Boulder", "Home");
+                return RedirectToAction("BoulderView", "Home", new { id = boulderId });
             }
             return RedirectToAction("Post", "Home");
         }
