@@ -39,50 +39,52 @@
                 <a class="btn bg-green expand-hover-sm brand-font-dark" asp-area="" asp-controller="Home" asp-action="Boulder">See All</a>
             </div>
         </div>
-        @{int nOfBoulders = 0; }
-        @foreach (var boulder in Model.Skip(Math.Max(0, Model.Count - 3)).Reverse())
-        {
-            string[] cardcolor = { "card-darkgrey", "card-lightgrey" };
+        
+        <div class="container">
+
+            @{int nOfBoulders = 0; }
+            @foreach (var boulder in Model.Skip(Math.Max(0, Model.Count - 3)).Reverse())
+            {
+                string[] cardcolor = { "card-darkgrey", "card-lightgrey" };
 
 
-            <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="BoulderView" asp-route-id="@boulder.Id">
+                <a class="nav-link expand-hover-sm" asp-area="" asp-controller="Home" asp-action="BoulderView" asp-route-id="@boulder.Id">
 
-                <div class="@cardcolor[nOfBoulders]">
-                    <div class="d-inline-flex flex-column text-dark col-auto">
-                        <div class="row">
-
-                            <div class="card-body d-inline-flex flex-column text-dark col-auto">
-                                <div class="row">
-                                    <p class="card-title col-2 brand-font-20-dark">Name</p>
-                                    <p class="card-text col-2 brand-font-20-dark">Location</p>
+                    <div class="@cardcolor[nOfBoulders]">
+                        <div class="d-inline-flex flex-column text-dark col-auto">
+                            <div class="row">
+                                <div class="ml-3 mt-2">
+                                    <img src="~/Assets/noun_bouldering_45246.png" style="width:100px; height:100px;"/>
                                 </div>
-                                <div class="row">
-                                    <p class="card-title col-2">@boulder.Name</p>
-                                    <p class="card-text col-2">@boulder.Location</p>
-                                    <div class="circle ml-auto">
-                                        <div class="tag-text brand-font-dark ml-3">@boulder.Grade</div>
+                                <div class="card-body d-inline-flex flex-column text-dark col-auto">
+                                    <div class="row">
+                                        <p class="card-title col-2 brand-font-20-dark">Name</p>
+                                        <p class="card-text col-2 brand-font-20-dark">Location</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="card-title col-2">@boulder.Name</p>
+                                        <p class="card-text col-2">@boulder.Location</p>
+                                        <p class="ml-auto brand-font-dark">Grade:</p>
+                                        <div class="circle ml-2">
+                                            <div class="tag-text brand-font-dark ml-2">@boulder.Grade</div>
+                                        </div>
                                     </div>
                                 </div>
+
+
                             </div>
-
-
-
-                            <div>
-                                <p class="brand-font-30-dark">Placeholder</p>
-                            </div>
-
                         </div>
                     </div>
-                </div>
-            </a>
-            nOfBoulders++;
-            if (nOfBoulders > 1)
-            {
-                nOfBoulders = 0;
+                </a>
+                nOfBoulders++;
+                if (nOfBoulders > 1)
+                {
+                    nOfBoulders = 0;
+                }
             }
-        }
+        </div>
 
-       
+
     </div>
 
 
