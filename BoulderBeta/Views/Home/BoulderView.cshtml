@@ -27,7 +27,7 @@
     {
 
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+            <form asp-area="" asp-controller="Home" asp-action="UploadVideo" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
                 @*Send temp userId with the action*@
                 <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
                 <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
@@ -50,7 +50,20 @@
                         <h2 class="brand-font-30-dark">Number of ratings: @post.NofRatings</h2>
                         <h2 class="brand-font-30-dark">Total rating: @post.TotRating</h2>
                     </div>
-                    <iframe src="@post.VideoUrl"></iframe>
+                    <video width="640" height="360" controls>
+                        <!-- MP4 must be first for iPad! -->
+                        <source src="~/VideoUploads/@post.VideoUrl" type="video/mp4" /><!-- Safari / iOS video    -->
+                        <source src="~/VideoUploads/@post.VideoUrl" type="video/mp4" /><!-- Firefox / Opera / Chrome10 -->
+                        <!-- fallback to Flash: -->
+                        <object width="640" height="360" type="application/x-shockwave-flash" data="__FLASH__.SWF">
+                            <!-- Firefox uses the `data` attribute above, IE/Safari uses the param below -->
+                            <param name="movie" value="__FLASH__.SWF" />
+                            <param name="flashvars" value="controlbar=over&amp;image=__POSTER__.JPG&amp;file=__VIDEO__.MP4" />
+                            <!-- fallback image. note the title field below, put the title of the video there -->
+                            <img src="" width="640" height="360" alt="__TITLE__"
+                                 title="No video playback capabilities, please download the video below" />
+                        </object>
+                    </video>                
                 </div>
             </div>
             nOfPosts++;
@@ -65,7 +78,7 @@
         <h2 class="brand-font-30">There are no Betas available for this Boulder yet.</h2>
 
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+            <form asp-area="" asp-controller="Home" asp-action="UploadVideo" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
                 @*Send temp userId with the action*@
                 <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
                 <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />

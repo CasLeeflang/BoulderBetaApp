@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Post\" />
-    <Folder Include="VideoUploads\" />
+    <Folder Include="wwwroot\VideoUploads\" />
   </ItemGroup>
 
 </Project>

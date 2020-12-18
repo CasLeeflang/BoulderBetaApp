@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using static DataLibrary.BusinessLogic.PostProcessor;
+
 
 namespace BoulderBeta.MVC.Controllers
 {
@@ -14,22 +16,36 @@ namespace BoulderBeta.MVC.Controllers
     {      
 
         [HttpPost("SaveVideo")]
+        [RequestFormLimits(MultipartBodyLengthLimit = 209715200)]
+        [RequestSizeLimit(209715200)]
         public async Task<IActionResult> SaveVideo(List<IFormFile> videoFiles, int boulderId, int userId)
         {
+            
+
             var size = videoFiles.Sum(f => f.Length);
 
             var filePaths = new List<string>();
             foreach(var formFile in videoFiles)
             {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory()+"/VideoUploads/", formFile.FileName);
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\VideoUploads", formFile.FileName).ToString();
                 filePaths.Add(filePath);
 
-                using( var stream = new FileStream(filePath, FileMode.Create))
+                if (ModelState.IsValid)
+                {
+                    int recordsCreate = CreatePost(userId,
+                        boulderId,
+                        formFile.FileName);
+
+                }
+
+                using ( var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await formFile.CopyToAsync(stream);
                 }
             }
+
             
+
             return RedirectToAction("Index", "Home");
         }
     }

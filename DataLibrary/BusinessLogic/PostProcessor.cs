@@ -9,7 +9,7 @@ namespace DataLibrary.BusinessLogic
 {
     public class PostProcessor
     {
-        public static int CreatePost(int userId, int boulderId, string url)
+        public static int CreatePost(int userId, int boulderId, string filePath)
         {
             //Mapping view model to logic model
             PostModel data = new PostModel
@@ -18,7 +18,7 @@ namespace DataLibrary.BusinessLogic
                 BoulderId = boulderId,
                 NofRatings = 0,
                 TotRating = 0,
-                VideoUrl = url
+                VideoUrl = filePath
             };
 
             //parameterised sql
