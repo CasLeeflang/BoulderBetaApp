@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace BoulderBeta.MVC.Models
         [Required(ErrorMessage = "Please fill in a URL for the video.")]
         [DataType(DataType.Url)]
         public string VideoUrl { get; private set; }
+
+        [Required]
+        [DataType(DataType.Upload)]
+        public IFormFile VideoFile { get; set; }
 
         public PostViewModel(int userId, int boulderId)
         {

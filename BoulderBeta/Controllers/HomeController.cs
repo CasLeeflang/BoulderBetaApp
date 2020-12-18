@@ -72,7 +72,13 @@ namespace BoulderBeta.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public IActionResult UploadVideo(int boulderId, int userId)
+        {
+            PostViewModel newPost = new PostViewModel(userId, boulderId);
+            return View(newPost);
+        }
 
-        
+
+
     }
 }

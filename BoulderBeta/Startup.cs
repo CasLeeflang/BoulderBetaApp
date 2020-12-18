@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using DataLibrary.Models;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace BoulderBeta
 {
@@ -29,6 +30,10 @@ namespace BoulderBeta
         {
             
             services.AddControllersWithViews();
+            services.Configure<FormOptions>(x =>
+            {
+                x.MultipartBodyLengthLimit = 209715200;
+            });
 
             services.RegisterAppSettingsReader(Configuration);
 

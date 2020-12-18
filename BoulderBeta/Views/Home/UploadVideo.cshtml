@@ -1,0 +1,22 @@
+﻿@model BoulderBeta.MVC.Models.PostViewModel
+
+<div class="brand-font">
+    <h1>Upload your own Beta</h1>    
+</div>
+
+<form class="brand-font" method="post" enctype="multipart/form-data" asp-controller="Video" asp-action="SaveVideo" asp-route-boulderId="@Model.BoulderId" asp-route-userId="@Model.UserId">
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload video (.mp4):</p>
+            <input type="file" name="videoFiles" multiple />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-primary" /> |
+                <a class="btn bg-green" asp-action="BoulderView" asp-route-id="@Model.BoulderId">Back to Boulder</a>
+            </div>
+    </div>
+</form>
