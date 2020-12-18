@@ -25,9 +25,10 @@
     @*check if there are posts*@
     if (numberOfPosts != 0)
     {
-        
+
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">   @*Send temp userId with the action*@
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+                @*Send temp userId with the action*@
                 <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
                 <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
             </form>
@@ -37,10 +38,10 @@
         {
             string[] cardcolor = { "card-darkgrey", "card-lightgrey" };
 
-            
+
             <div class="text-dark @cardcolor[nOfPosts] mt-3">
                 <div class="row">
-                    
+
                     <div class="column ml-5 mt-2">
                         @foreach (var user in UserProcessor.LoadUserById(post.UserId))
                         {
@@ -62,12 +63,13 @@
     else
     {
         <h2 class="brand-font-30">There are no Betas available for this Boulder yet.</h2>
-        
+
         <div class="row">
-            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">   @*Send temp userId with the action*@
-                        <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
-                        <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
-                    </form>
+            <form asp-area="" asp-controller="Home" asp-action="Post" asp-route-boulderId="@boulder.Id" asp-route-userId="2">
+                @*Send temp userId with the action*@
+                <a class="btn bg-green brand-font-dark" asp-action="Boulder">Back to Boulders</a> |
+                <input type="submit" value="Upload Your Own Beta" class="btn bg-blue brand-font-dark" />
+            </form>
         </div>
     }
 
